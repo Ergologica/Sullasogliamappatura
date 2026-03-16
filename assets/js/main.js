@@ -158,4 +158,29 @@ document.addEventListener("DOMContentLoaded", function () {
             link.classList.add("active");
         }
     });
+
+    /* --- Scroll reveal (P5) --- */
+    if ('IntersectionObserver' in window) {
+        var revealElements = document.querySelectorAll('.reveal');
+        var revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function (el) {
+            revealObserver.observe(el);
+        });
+    } else {
+        // Fallback: show everything immediately
+        document.querySelectorAll('.reveal').forEach(function (el) {
+            el.classList.add('revealed');
+        });
+    }
 });

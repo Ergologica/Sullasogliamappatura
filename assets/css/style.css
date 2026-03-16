@@ -7,7 +7,7 @@
 
 /* --- CSS Variables --- */
 :root {
-    --color-primary: #B8513A;
+    --color-primary: #C04428;
     --color-primary-light: #D4785F;
     --color-primary-dark: #8C3D2B;
     --color-secondary: #6B7F5E;
@@ -15,25 +15,26 @@
     --color-accent: #C9A35C;
     --color-accent-light: #E8D5A8;
 
-    --color-bg: #FAFAF6;
-    --color-bg-warm: #F5F0E8;
+    --color-bg: #F8F6F1;
+    --color-bg-warm: #F0EBE1;
     --color-bg-card: #FFFFFF;
-    --color-text: #2C2C2C;
-    --color-text-light: #6B6B6B;
-    --color-text-muted: #999;
-    --color-border: #E5E0D5;
-    --color-border-light: #F0ECE3;
+    --color-text: #1A1A1A;
+    --color-text-light: #555;
+    --color-text-muted: #888;
+    --color-border: #E0DBD0;
+    --color-border-light: #EBE7DE;
 
-    --font-heading: 'DM Serif Display', Georgia, serif;
-    --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+    --font-heading: 'Sora', 'Segoe UI', sans-serif;
+    --font-body: 'DM Sans', 'Segoe UI', sans-serif;
 
     --max-width: 1100px;
     --nav-height: 70px;
-    --radius: 10px;
-    --radius-sm: 6px;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.07);
     --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+    --shadow-hover: 0 8px 28px rgba(0,0,0,0.12);
     --transition: 0.3s ease;
 }
 
@@ -53,7 +54,7 @@ body {
     font-family: var(--font-body);
     color: var(--color-text);
     background: var(--color-bg);
-    line-height: 1.7;
+    line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -79,15 +80,15 @@ a:hover {
 /* --- Typography --- */
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
-    font-weight: 400;
-    line-height: 1.3;
+    font-weight: 600;
+    line-height: 1.25;
     color: var(--color-text);
 }
 
-h1 { font-size: 2.6rem; }
-h2 { font-size: 1.9rem; margin-bottom: 1rem; }
-h3 { font-size: 1.4rem; margin-bottom: 0.6rem; }
-h4 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+h1 { font-size: 2.4rem; font-weight: 700; }
+h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+h4 { font-size: 1.1rem; margin-bottom: 0.4rem; }
 
 p {
     margin-bottom: 1rem;
@@ -108,7 +109,7 @@ ul {
     left: 0;
     right: 0;
     height: var(--nav-height);
-    background: rgba(250, 250, 246, 0.95);
+    background: rgba(248, 246, 241, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border-light);
@@ -455,8 +456,8 @@ ul {
 
 .card:hover {
     border-color: var(--color-primary-light);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
 }
 
 .card-icon {
@@ -1574,11 +1575,12 @@ a:focus-visible {
 .map-hero {
     position: relative;
     width: 100%;
-    height: 65vh;
-    min-height: 400px;
-    max-height: 700px;
+    height: 50vh;
+    min-height: 340px;
+    max-height: 560px;
     overflow: hidden;
-    border-bottom: 3px solid var(--color-primary);
+    border-bottom: none;
+    margin-top: var(--nav-height);
 }
 
 .map-hero iframe {
@@ -1588,29 +1590,30 @@ a:focus-visible {
     display: block;
 }
 
-/* Overlay informativo sopra la mappa */
+/* Compact CTA bar above map bottom */
 .map-hero-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(44, 44, 44, 0.85));
-    padding: 40px 20px 20px;
+    background: linear-gradient(transparent, rgba(26, 26, 26, 0.7));
+    padding: 32px 20px 16px;
     color: white;
     pointer-events: none;
 }
 
 .map-hero-overlay h1 {
     font-family: var(--font-heading);
-    font-size: 1.6rem;
-    font-weight: 400;
-    margin-bottom: 4px;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 2px;
 }
 
 .map-hero-overlay p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     opacity: 0.85;
-    max-width: 600px;
+    max-width: 520px;
+    margin-bottom: 0;
 }
 
 .map-hero-overlay .map-actions {
@@ -1657,10 +1660,9 @@ a:focus-visible {
 .stat-strip {
     display: flex;
     justify-content: center;
-    gap: 32px;
+    gap: 40px;
     padding: 18px 16px;
     background: var(--color-bg-warm);
-    border-bottom: 1px solid var(--color-border-light);
     flex-wrap: wrap;
 }
 
@@ -1728,12 +1730,12 @@ a:focus-visible {
 
 @media (max-width: 768px) {
     .map-hero {
-        height: 55vh;
-        min-height: 320px;
+        height: 45vh;
+        min-height: 280px;
     }
 
     .map-hero-overlay h1 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .stat-strip {
@@ -1747,8 +1749,8 @@ a:focus-visible {
 
 @media (max-width: 480px) {
     .map-hero {
-        height: 50vh;
-        min-height: 280px;
+        height: 40vh;
+        min-height: 240px;
     }
 
     .global-search-inner input {
@@ -1757,19 +1759,402 @@ a:focus-visible {
     }
 
     .map-hero-overlay {
-        padding: 30px 14px 14px;
+        padding: 24px 14px 12px;
     }
 
     .map-hero-overlay h1 {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
     .map-hero-overlay p {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
     }
 
     .stat-strip {
         gap: 12px;
         padding: 14px 12px;
+    }
+}
+
+/* ======================================
+   SKIP TO CONTENT (P8 - Accessibility)
+   ====================================== */
+.skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    z-index: 9999;
+    padding: 12px 24px;
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+    top: 0;
+    color: white;
+}
+
+/* ======================================
+   CARD-PHOTO — Quartieri con immagine (P1)
+   ====================================== */
+.card-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    min-height: 220px;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background: var(--color-text);
+}
+
+.card-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 25%, rgba(0,0,0,0.72) 100%);
+    z-index: 1;
+    transition: background 0.4s ease;
+}
+
+.card-photo:hover::before {
+    background: linear-gradient(transparent 15%, rgba(0,0,0,0.8) 100%);
+}
+
+.card-photo:hover img {
+    transform: scale(1.06);
+}
+
+.card-photo:hover {
+    border-color: transparent;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+}
+
+.card-photo-content {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.card-photo-content h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.card-photo-content p {
+    color: rgba(255,255,255,0.88);
+    font-size: 0.88rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.card-photo-content .card-link {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.card-photo-content .card-link::after {
+    content: '→';
+    margin-left: 4px;
+    transition: margin-left var(--transition);
+}
+
+.card-photo:hover .card-link::after {
+    margin-left: 8px;
+}
+
+/* Gradient placeholder per quartieri senza foto reale */
+.card-photo--placeholder img {
+    display: none;
+}
+
+.card-photo--placeholder.grad-green {
+    background: linear-gradient(135deg, #4a6741 0%, #6B7F5E 50%, #8FA07F 100%);
+}
+
+.card-photo--placeholder.grad-terracotta {
+    background: linear-gradient(135deg, #8C3D2B 0%, #C04428 50%, #D4785F 100%);
+}
+
+.card-photo--placeholder.grad-gold {
+    background: linear-gradient(135deg, #9a7b3a 0%, #C9A35C 50%, #E8D5A8 100%);
+}
+
+.card-photo--placeholder.grad-slate {
+    background: linear-gradient(135deg, #3d4a52 0%, #5a6b75 50%, #7e919b 100%);
+}
+
+.card-photo--placeholder.grad-plum {
+    background: linear-gradient(135deg, #5c3a4e 0%, #8a5a74 50%, #b08098 100%);
+}
+
+
+/* ======================================
+   SERVICE CARDS — Tabelle → card (P2)
+   ====================================== */
+.service-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.service-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.1rem;
+    transition: all var(--transition);
+}
+
+.service-card:hover {
+    border-left-color: var(--color-primary-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.service-card-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+}
+
+.service-card-addr {
+    font-size: 0.84rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+}
+
+.service-card-info {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+    line-height: 1.4;
+}
+
+.service-card-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.service-card-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 50px;
+    background: rgba(192, 68, 40, 0.06);
+    transition: all var(--transition);
+}
+
+.service-card-actions a:hover {
+    background: rgba(192, 68, 40, 0.14);
+    color: var(--color-primary-dark);
+}
+
+/* Border color variants per categoria */
+.service-card--culto { border-left-color: var(--color-accent); }
+.service-card--culto:hover { border-left-color: #a8863c; }
+.service-card--trasporti { border-left-color: var(--color-secondary); }
+.service-card--trasporti:hover { border-left-color: #4e6044; }
+.service-card--scuole { border-left-color: #4A90C4; }
+.service-card--scuole:hover { border-left-color: #3672a0; }
+.service-card--salute { border-left-color: #49A078; }
+.service-card--salute:hover { border-left-color: #357a5a; }
+.service-card--sport { border-left-color: #D4785F; }
+.service-card--sport:hover { border-left-color: #b8513a; }
+
+/* Simple place list (for punti di ritrovo) */
+.place-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+}
+
+.place-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    transition: all var(--transition);
+}
+
+.place-chip:hover {
+    border-color: var(--color-primary-light);
+    background: rgba(192, 68, 40, 0.04);
+}
+
+
+/* ======================================
+   SCROLL REVEAL ANIMATION (P5)
+   ====================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reveal-stagger.revealed > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0.04s; }
+.reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.revealed > *:nth-child(3) { transition-delay: 0.12s; }
+.reveal-stagger.revealed > *:nth-child(4) { transition-delay: 0.16s; }
+.reveal-stagger.revealed > *:nth-child(5) { transition-delay: 0.20s; }
+.reveal-stagger.revealed > *:nth-child(6) { transition-delay: 0.24s; }
+.reveal-stagger.revealed > *:nth-child(7) { transition-delay: 0.28s; }
+.reveal-stagger.revealed > *:nth-child(8) { transition-delay: 0.32s; }
+
+/* Active nav underline animation */
+.main-nav a.active {
+    color: var(--color-primary);
+    position: relative;
+}
+
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 1px;
+}
+
+/* Map loading skeleton */
+.map-skeleton {
+    width: 100%;
+    height: 100%;
+    background: var(--color-bg-warm);
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+@keyframes skeleton-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+
+/* ======================================
+   SEGNALA — Form embed (P6)
+   ====================================== */
+.form-embed-wrapper {
+    margin: 1.5rem 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+}
+
+.form-embed-wrapper iframe {
+    width: 100%;
+    height: 680px;
+    border: none;
+    display: block;
+}
+
+.form-context-msg {
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.form-context-msg strong {
+    color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+    .form-embed-wrapper iframe {
+        height: 750px;
+    }
+}
+
+
+/* ======================================
+   RESPONSIVE overrides for new components
+   ====================================== */
+@media (max-width: 768px) {
+    .card-photo {
+        min-height: 180px;
+    }
+
+    .card-photo-content {
+        padding: 1.2rem;
+    }
+
+    .card-photo-content h3 {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-photo {
+        min-height: 160px;
+    }
+
+    .service-card-grid {
+        grid-template-columns: 1fr;
     }
 }
