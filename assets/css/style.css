@@ -623,38 +623,146 @@ ul {
     margin-bottom: 0;
 }
 
-/* ======================================
-   MAP SECTION
-   ====================================== */
-.map-section {
-    padding: 3rem 0;
+/* ============================================================
+   MAP HERO - Layout Sassari Mappata (In alto a destra)
+   ============================================================ */
+
+.map-hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Altezza immersiva */
+    min-height: 550px;
+    overflow: hidden;
+    background: var(--color-bg-warm);
+    /* Se la barra di ricerca è sticky, togliamo margini extra */
+    margin-top: 0; 
 }
 
-.map-frame {
+.map-hero iframe {
     width: 100%;
-    height: min(500px, 70vh);
+    height: 100%;
     border: none;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-md);
-}
-
-.map-caption {
-    text-align: center;
-    font-size: 0.88rem;
-    color: var(--color-text-muted);
-    margin-top: 1rem;
-}
-
-.map-img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    margin: 1.5rem auto;
     display: block;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-md);
 }
 
+.map-hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    
+    /* POSIZIONAMENTO ALTO A DESTRA */
+    justify-content: flex-start; 
+    align-items: flex-end;      
+    text-align: right;          
+    
+    padding: 4rem 5% 2rem 2rem; /* Più spazio a destra e in alto */
+    
+    /* Gradiente radiale che "abbraccia" solo il testo nell'angolo */
+    background: radial-gradient(
+        circle at top right, 
+        rgba(26, 26, 26, 0.8) 0%, 
+        rgba(26, 26, 26, 0.3) 45%,
+        transparent 75%
+    );
+    
+    pointer-events: none; /* Permette di cliccare la mappa sotto */
+    z-index: 10;
+}
+
+/* Riattiva i clic sugli elementi di testo e bottoni */
+.map-hero-overlay h1, 
+.map-hero-overlay p, 
+.map-hero-overlay .map-actions {
+    pointer-events: auto;
+}
+
+.map-hero-overlay h1 {
+    color: white;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    line-height: 1.1;
+}
+
+.map-hero-overlay p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.25rem;
+    max-width: 450px;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+}
+
+.map-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end; /* Allinea bottoni a destra */
+}
+
+/* BOTTONE PRINCIPALE (Schermo intero) */
+.btn-map-full {
+    background: var(--color-primary);
+    color: white !important;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition);
+    border: 2px solid var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+}
+
+/* BOTTONE SECONDARIO (Quartieri) */
+.btn-map-info {
+    background: rgba(255, 255, 255, 0.1);
+    color: white !important;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: all var(--transition);
+}
+
+.btn-map-full:hover {
+    background: white;
+    color: var(--color-primary) !important;
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+.btn-map-info:hover {
+    background: white;
+    color: var(--color-primary) !important;
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* --- MOBILE ADAPTATION --- */
+@media (max-width: 768px) {
+    .map-hero-overlay {
+        padding: 2rem 1.5rem;
+        justify-content: center; /* Centrato su mobile per leggibilità */
+        align-items: center;
+        text-align: center;
+        background: rgba(26, 26, 26, 0.6); /* Sfondo più scuro per contrasto */
+    }
+    
+    .map-actions {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .btn-map-full, .btn-map-info {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
 /* Image gallery (quartieri page) */
 .gallery {
     display: grid;
